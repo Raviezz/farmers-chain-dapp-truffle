@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Farmers | Chain</title>
+
+  <!-- Bootstrap -->
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <style>
+    main {
+      margin-top: 60px;
+    }
+
+    #content {
+      display: none;
+    }
+
+    form {
+      width: 350px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-bottom: 0px;
+    }
+
+    #completedTaskList .content {
+      color: grey;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://www.dappuniversity.com/free-download"
+      target="_blank">Farmers Chain</a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+        <small><a class="nav-link" href="#"><span id="usersCount"></span></a></small>
+      </li>
+      <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+        <small><a class="nav-link" href="#"><span id="productCount"></span></a></small>
+      </li>
+      <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+        <small><a class="nav-link" href="#"><span id="account"></span></a></small>
+      </li>
+    </ul>
+  </nav>
+  <br />
+  <br />
+  <div class="container-fluid">
+    <div class="row">
+      <main role="main" class="col-lg-12 d-flex justify-content-center">
+        <div id="loader" class="text-center">
+          <p class="text-center">Loading...</p>
+        </div>
+        <div class="col-sm">
+
+          <div id="register">
+            <form onSubmit="App.createUser(); return false;">
+              <input id="fname" type="text" class="form-control" placeholder="User name" required>
+              <input id="cnic" type="text" class="form-control" placeholder="CNIC" required>
+              <input id="city" type="text" class="form-control" placeholder="City" required>
+              <input id="faddress" type="text" class="form-control" placeholder="public address" required>
+              <select id="userType" class="form-control" required>
+                <option value="default" selected disabled>Select Type</option>
+                <option value="Farmer">Farmer</option>
+                <option value="Retailer">Retailer</option>
+              </select>
+              <input type="submit" value="Create User" class="btn btn-primary mt-4">
+            </form>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div id="content">
+            <form onSubmit="App.registerProduct(); return false;">
+              <input id="pname" type="text" class="form-control" placeholder="Add Product..." required>
+              <input id="price" type="text" class="form-control" placeholder="price..." required>
+              <input id="harvestDate" type="text" class="form-control" placeholder="Harvested On..." required>
+              <input id="pOwner" type="text" class="form-control" placeholder="Product owner..." required>
+              <input type="submit" value="Register Product" class="btn btn-success mt-4">
+            </form>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="./images/business-man.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title utitle"></h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item upublic"></li>
+                <li class="list-group-item ucnic"></li>
+                <li class="list-group-item utype"></li>
+                <li class="list-group-item ucity"><a href="#" class="btn btn-primary">My Products</a></li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table id="productsTable" class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Owner public Key</th>
+              <th scope="col">Price</th>
+              <th scope="col">Harvest</th>
+              <th scope="col">Recorded Date</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
