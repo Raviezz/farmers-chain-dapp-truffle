@@ -14,3 +14,6 @@ truffle compile -> to compile and generate ABI in build dir .(Abstract Binary In
 truffle migrate -> migrate code to blockchain  
 truffle console -> interative mode  
 
+![alt text](https://github.com/Raviezz/farmers-chain-dapp-truffle/blob/main/project_attachments/Screenshot%20(127).png?raw=true)
+
+
